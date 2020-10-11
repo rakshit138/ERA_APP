@@ -137,12 +137,12 @@ class _SignUpState extends State<SignUp> {
                         child: Text(
                           'SignUp',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Color(0xff03258C),
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        color: Colors.orange,
+                        color: Colors.amber,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
