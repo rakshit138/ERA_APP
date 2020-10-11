@@ -82,6 +82,8 @@ flutter:
     - assets/images/IMG4.jpg
     - assets/images/sourav.png
     - assets/images/logopng.png
+    - assets/images/BAckground.png
+    - assets/images/HomeLogo.jpeg
     - assets/videos/Intro.mp4
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
