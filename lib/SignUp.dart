@@ -171,14 +171,20 @@ class _SignUpState extends State<SignUp> {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      SwitchListTile(
+                      CheckboxListTile(
                         value: _acceptTerms,
                         onChanged: (bool value) {
                           setState(() {
                             _acceptTerms = value;
                           });
                         },
-                        title: Text('Accept T&Cs'),
+                        title: Text(
+                          'Accept T&Cs',
+                          style:
+                              TextStyle(color: Color(0xff03258C), fontSize: 15),
+                        ),
+                        activeColor: Colors.amber,
+                        checkColor: Color(0xff03258C),
                       ),
                       Visibility(
                         visible: _acceptTerms,
