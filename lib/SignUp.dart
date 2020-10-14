@@ -126,6 +126,7 @@ class _SignUpState extends State<SignUp> {
                   child: Column(
                     children: <Widget>[
                       Container(
+                        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                         child: TextFormField(
                             validator: (input) {
                               if (input.isEmpty) return 'Enter Name';
@@ -137,6 +138,7 @@ class _SignUpState extends State<SignUp> {
                             onSaved: (input) => _name = input),
                       ),
                       Container(
+                        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                         child: TextFormField(
                             validator: (input) {
                               if (input.isEmpty) return 'Enter Email';
@@ -147,6 +149,7 @@ class _SignUpState extends State<SignUp> {
                             onSaved: (input) => _email = input),
                       ),
                       Container(
+                        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                         child: TextFormField(
                             validator: (input) {
                               if (input.length < 6)
