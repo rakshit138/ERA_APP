@@ -13,6 +13,7 @@ class _SignUpState extends State<SignUp> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   String _name, _email, _password;
+  bool _acceptTerms = false;
 
   checkAuthentication() async {
     _auth.authStateChanges().listen((user) async {
@@ -27,6 +28,33 @@ class _SignUpState extends State<SignUp> {
   void initState() {
     super.initState();
     this.checkAuthentication();
+  }
+
+  terms() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Terms & Conditions',
+            style: TextStyle(color: Color(0xff03258C)),
+          ),
+          content: Column(children: [
+            Text(' some Terms & Conditions'),
+          ]),
+          actions: <Widget>[
+            FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  'Go Back',
+                  style: TextStyle(color: Color(0xff03258C), fontSize: 14),
+                ))
+          ],
+        );
+      },
+    );
   }
 
   signUp() async {
@@ -86,7 +114,7 @@ class _SignUpState extends State<SignUp> {
             children: <Widget>[
               Container(
                 padding: EdgeInsets.all(10),
-                height: 400,
+                height: 350,
                 child: Image(
                   image: AssetImage("assets/images/logopng.png"),
                   fit: BoxFit.contain,
@@ -131,21 +159,44 @@ class _SignUpState extends State<SignUp> {
                             obscureText: true,
                             onSaved: (input) => _password = input),
                       ),
-                      SizedBox(height: 20),
-                      RaisedButton(
-                        padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                        onPressed: signUp,
+                      // SizedBox(height: 20),
+                      FlatButton(
+                        onPressed: terms,
                         child: Text(
-                          'SignUp',
+                          "Terms & Conditions",
                           style: TextStyle(
                             color: Color(0xff03258C),
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
                           ),
+                          textAlign: TextAlign.center,
                         ),
-                        color: Colors.amber,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      SwitchListTile(
+                        value: _acceptTerms,
+                        onChanged: (bool value) {
+                          setState(() {
+                            _acceptTerms = value;
+                          });
+                        },
+                        title: Text('Accept T&Cs'),
+                      ),
+                      Visibility(
+                        visible: _acceptTerms,
+                        child: RaisedButton(
+                          padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
+                          onPressed: signUp,
+                          child: Text(
+                            'SignUp',
+                            style: TextStyle(
+                              color: Color(0xff03258C),
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          color: Colors.amber,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
                         ),
                       )
                     ],
