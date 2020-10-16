@@ -1,4 +1,5 @@
 import 'package:ERA/HomePage.dart';
+import 'package:ERA/loading.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'SignUp.dart';
@@ -42,6 +43,7 @@ class _LoginState extends State<Login> {
       try {
         UserCredential credential = await _auth.signInWithEmailAndPassword(
             email: _email, password: _password);
+
         User user = credential.user;
       } catch (e) {
         showError(e.errormessage);
@@ -79,10 +81,11 @@ class _LoginState extends State<Login> {
           child: Column(
             children: <Widget>[
               Container(
-                height: 400,
+                height: 300,
+                padding: EdgeInsets.fromLTRB(20, 40, 20, 20),
                 child: Image(
-                  image: AssetImage("assets/images/logopng.png"),
-                  fit: BoxFit.contain,
+                  image: AssetImage("assets/images/logo png 3.png"),
+                  fit: BoxFit.fill,
                 ),
               ),
               Container(
@@ -90,28 +93,77 @@ class _LoginState extends State<Login> {
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
-                      Container(
-                        child: TextFormField(
-                            validator: (input) {
-                              if (input.isEmpty) return 'Enter Email';
-                            },
-                            decoration: InputDecoration(
-                                labelText: 'Email',
-                                prefixIcon: Icon(Icons.email)),
-                            onSaved: (input) => _email = input),
+                      Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Container(
+                          child: TextFormField(
+                              validator: (input) {
+                                if (input.isEmpty) return 'Enter Email';
+                              },
+                              decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.all(10),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: new BorderSide(
+                                        color: Color(0xff03258C)),
+                                    borderRadius:
+                                        new BorderRadius.circular(25.7),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: new BorderSide(
+                                        color: Color(0xff03258C), width: 3),
+                                    borderRadius:
+                                        new BorderRadius.circular(25.7),
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.amber,
+                                  labelStyle: TextStyle(
+                                      color: Color(0xff03258C),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                  labelText: 'Email',
+                                  prefixIcon: Icon(
+                                    Icons.email,
+                                    color: Color(0xff03258C),
+                                  )),
+                              onSaved: (input) => _email = input),
+                        ),
                       ),
-                      Container(
-                        child: TextFormField(
-                            validator: (input) {
-                              if (input.length < 6)
-                                return 'Provide Minimum 6 Character';
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Password',
-                              prefixIcon: Icon(Icons.lock),
-                            ),
-                            obscureText: true,
-                            onSaved: (input) => _password = input),
+                      Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Container(
+                          child: TextFormField(
+                              validator: (input) {
+                                if (input.length < 6)
+                                  return 'Provide Minimum 6 Character';
+                              },
+                              decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.all(10),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: new BorderSide(
+                                        color: Color(0xff03258C)),
+                                    borderRadius:
+                                        new BorderRadius.circular(25.7),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: new BorderSide(
+                                        color: Color(0xff03258C), width: 3),
+                                    borderRadius:
+                                        new BorderRadius.circular(25.7),
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.amber,
+                                  labelStyle: TextStyle(
+                                      color: Color(0xff03258C),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                  labelText: 'Password',
+                                  prefixIcon: Icon(
+                                    Icons.lock,
+                                    color: Color(0xff03258C),
+                                  )),
+                              obscureText: true,
+                              onSaved: (input) => _password = input),
+                        ),
                       ),
                       SizedBox(height: 20),
                       RaisedButton(

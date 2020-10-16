@@ -53,11 +53,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var text = Text(
-      "Hello ... you are Logged in as \n${user.email}",
-      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+      " you are Logged in as \n${user.email}",
+      style: TextStyle(
+        color: Colors.amber,
+        fontSize: 20.0,
+        fontWeight: FontWeight.w500,
+        fontFamily: 'Merriweather',
+      ),
     );
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.grey[100],
         body: Container(
           child: !isloggedin
               ? Center(child: CircularProgressIndicator())
@@ -75,8 +81,22 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: text,
-                        ),
+                            child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(20),
+                              child: Text(
+                                'Welcome To ERA',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Color(0xff03258C),
+                                    fontFamily: 'Merriweather',
+                                    fontSize: 24),
+                              ),
+                            ),
+                            text,
+                          ],
+                        )),
                       ],
                     ),
                     Spacer(),
