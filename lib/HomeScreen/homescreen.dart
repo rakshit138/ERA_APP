@@ -19,9 +19,9 @@ class HomeScreen extends StatelessWidget {
           title: Text(
             'ERA',
             style: TextStyle(
-              fontFamily: 'Merriweather',
-              color: Colors.white,
-            ),
+                fontFamily: 'Merriweather',
+                color: Colors.amber,
+                fontWeight: FontWeight.bold),
           ),
         ),
         drawer: Drawer(
@@ -388,30 +388,32 @@ class VideoState extends State<VideoExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Container(
-        child: AspectRatio(
-            aspectRatio: 16 / 9,
-            child: Container(
-              child: (playerController != null
-                  ? VideoPlayer(
-                      playerController,
-                    )
-                  : Container(
-                      decoration: new BoxDecoration(
-                        color: Colors.black,
-                      ),
-                    )),
-            )),
-      ),
-      IconButton(
-        icon: Icon(Icons.play_arrow),
-        onPressed: () {
-          createVideo();
-          playerController.play();
-        },
-      )
-    ]);
+    return SafeArea(
+      child: Column(children: [
+        Container(
+          child: AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Container(
+                child: (playerController != null
+                    ? VideoPlayer(
+                        playerController,
+                      )
+                    : Container(
+                        decoration: new BoxDecoration(
+                          color: Colors.black,
+                        ),
+                      )),
+              )),
+        ),
+        IconButton(
+          icon: Icon(Icons.play_arrow),
+          onPressed: () {
+            createVideo();
+            playerController.play();
+          },
+        )
+      ]),
+    );
   }
 }
 
@@ -2438,10 +2440,11 @@ class Footer extends StatelessWidget {
                 'ERA-Assistant to Redefine Education',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontFamily: 'Merriweather',
-                    color: Colors.grey[400],
-                    fontSize: 26.0,
-                    fontWeight: FontWeight.bold),
+                  fontFamily: 'Merriweather',
+                  color: Colors.amber,
+                  fontSize: 26.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Padding(
@@ -2451,8 +2454,9 @@ class Footer extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontFamily: 'Merriweather',
-                    color: Colors.grey[400],
-                    fontSize: 22.0),
+                    color: Colors.amber,
+                    fontSize: 20.0,
+                    fontStyle: FontStyle.italic),
               ),
             ),
             Row(
@@ -2464,7 +2468,7 @@ class Footer extends StatelessWidget {
                       icon: FaIcon(
                         FontAwesomeIcons.facebook,
                         size: 40,
-                        color: Colors.blueGrey,
+                        color: Colors.amber,
                       ),
                       onPressed: null),
                 ),
@@ -2473,7 +2477,7 @@ class Footer extends StatelessWidget {
                       icon: FaIcon(
                         FontAwesomeIcons.instagram,
                         size: 40,
-                        color: Colors.blueGrey,
+                        color: Colors.amber,
                       ),
                       onPressed: null),
                 ),
@@ -2482,7 +2486,7 @@ class Footer extends StatelessWidget {
                       icon: FaIcon(
                         FontAwesomeIcons.linkedin,
                         size: 40,
-                        color: Colors.blueGrey,
+                        color: Colors.amber,
                       ),
                       onPressed: null),
                 ),
@@ -2491,7 +2495,7 @@ class Footer extends StatelessWidget {
                       icon: FaIcon(
                         FontAwesomeIcons.twitter,
                         size: 40,
-                        color: Colors.blueGrey,
+                        color: Colors.amber,
                       ),
                       onPressed: null),
                 ),
@@ -2510,8 +2514,8 @@ class Footer extends StatelessWidget {
                         'Privacy Policy',
                         style: TextStyle(
                             fontFamily: 'Merriweather',
-                            color: Colors.white,
-                            fontSize: 18),
+                            color: Colors.blueGrey[200],
+                            fontSize: 16),
                       ),
                     ),
                   ),
@@ -2522,8 +2526,8 @@ class Footer extends StatelessWidget {
                         'Terms & Conditions',
                         style: TextStyle(
                             fontFamily: 'Merriweather',
-                            color: Colors.white,
-                            fontSize: 20),
+                            color: Colors.blueGrey[200],
+                            fontSize: 16),
                       ),
                     ),
                   ),

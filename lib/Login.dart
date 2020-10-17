@@ -1,8 +1,10 @@
+import 'package:ERA/ForgotPassword.dart';
 import 'package:ERA/HomePage.dart';
 // import 'package:ERA/loading.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'SignUp.dart';
+import 'ForgotPassword.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -71,6 +73,15 @@ class _LoginState extends State<Login> {
 
   navigateToSignUp() async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+  }
+
+  navigateToForgotPassword() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ForgotPassword(),
+      ),
+    );
   }
 
   @override
@@ -203,6 +214,19 @@ class _LoginState extends State<Login> {
                           fontWeight: FontWeight.bold),
                     ),
                     onTap: navigateToSignUp,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: GestureDetector(
+                    child: Text(
+                      'Forgot Password',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    onTap: navigateToForgotPassword,
                   ),
                 )
               ],
