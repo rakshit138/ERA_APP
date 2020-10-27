@@ -40,9 +40,12 @@ class _SignUpState extends State<SignUp> {
             'Terms & Conditions',
             style: TextStyle(color: Color(0xff03258C)),
           ),
-          content: Column(children: [
-            Text(' Some Terms and condition'),
-          ]),
+          content: RichText(
+              text: TextSpan(children: <TextSpan>[
+            TextSpan(
+                text:
+                    ' Welcome to the Strot Associate under the brand name of ERA – Assistant to Redefine Education. terms and condition. These terms and conditions (“T&C”), are between Strot Associate and you, (hereinafter referred to as “You” or “Your” or “User(s)”). By accessing our website and products, you agree to be bound by the provisions of these Terms and Conditions.'),
+          ])),
           actions: <Widget>[
             FlatButton(
                 onPressed: () {
@@ -67,7 +70,10 @@ class _SignUpState extends State<SignUp> {
             'Privacy Policy',
             style: TextStyle(color: Color(0xff03258C)),
           ),
-          content: Column(children: [Text('Some Privacy Text')]),
+          content: RichText(
+              text: TextSpan(children: <TextSpan>[
+            TextSpan(text: 'some huge text line'),
+          ])),
           actions: <Widget>[
             FlatButton(
                 onPressed: () {

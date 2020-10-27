@@ -91,49 +91,45 @@ class _StartState extends State<Start> {
                     ),
                   ),
                   SizedBox(height: 40.0),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: 170,
-                          child: RaisedButton(
-                              padding: EdgeInsets.only(left: 15, right: 15),
-                              onPressed: navigateToLogin,
-                              child: Text(
-                                'LOGIN',
-                                style: TextStyle(
-                                  fontFamily: 'Merriweather',
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xff03258C),
-                                ),
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              color: Colors.amber),
+                  Container(
+                    width: 170,
+                    child: RaisedButton(
+                        padding: EdgeInsets.only(left: 15, right: 15),
+                        onPressed: navigateToLogin,
+                        child: Text(
+                          'LOGIN',
+                          style: TextStyle(
+                            fontFamily: 'Merriweather',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff03258C),
+                          ),
                         ),
-                        Container(
-                          width: 170,
-                          child: RaisedButton(
-                              padding: EdgeInsets.only(left: 15, right: 15),
-                              onPressed: navigateToRegister,
-                              child: Text(
-                                'REGISTER',
-                                style: TextStyle(
-                                  fontFamily: 'Merriweather',
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xff03258C),
-                                ),
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              color: Colors.amber),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                      ]),
+                        color: Colors.amber),
+                  ),
+                  SizedBox(height: 20.0),
+                  Container(
+                    width: 170,
+                    child: RaisedButton(
+                        padding: EdgeInsets.only(left: 15, right: 15),
+                        onPressed: navigateToRegister,
+                        child: Text(
+                          'REGISTER',
+                          style: TextStyle(
+                            fontFamily: 'Merriweather',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff03258C),
+                          ),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        color: Colors.amber),
+                  ),
                   SizedBox(height: 20),
                   Container(
                     width: 200,
